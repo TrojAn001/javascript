@@ -1,0 +1,40 @@
+function Account (felhasz,tulaj)
+	{
+		this.accountType=felhasz;
+		this.owner=tulaj;
+		this.saldo=0;
+		this.transaction=[];
+
+	this.insert = function(fizu)
+	{
+		this.transaction.push(fizu);
+		this.saldo+=fizu;
+	}
+	this.withdraw = function(felvet)
+	{
+		this.transaction.push(felvet);
+		this.saldo-=felvet;
+	}
+	this.setRent = function(lakber)
+	{
+		this.rent=lakber;
+	}
+	this.getSaldo = function()
+	{
+		document.body.innerHTML += "<p>" + this.saldo + "</p>";
+	}
+	this.getTransactions = function()
+	{
+		for ( i = 0; i < this.transaction.length; i++)
+			document.body.innerHTML += "<p>" + this.transaction[i] + "</p>";
+		
+	}
+}
+var HansJ = new Account("kasfnioasn,Hans Jensen");
+
+HansJ.insert(100);
+HansJ.getSaldo();
+HansJ.insert(150);
+HansJ.withdraw(50);
+HansJ.getSaldo();
+HansJ.getTransactions();
